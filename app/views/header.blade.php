@@ -14,6 +14,10 @@
 				<a href="{{ URL::route("user/login") }}">
 					Login
 				</a>
+				|
+				<a href="{{ URL::route("user/create") }}">
+					Register
+				</a>
 			@endif
 		</div>
 	</div>
