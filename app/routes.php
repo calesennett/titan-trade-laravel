@@ -10,8 +10,23 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
-Route::get('/', function()
+Route::group(["before" => "guest"], function()
 {
-	return View::make('hello');
+    Route::any("/", [
+        "as"   => "user/login",
+        "uses" => "UserController@loginAction"
+    ]);
 });
+Route::group(["before" => "auth"], function()
+{
+    Route::any("/profile", [
+        "as"   => "user/profile",
+        "uses" => "UserController@profileAction"
+    ]);
+    Route::any("/logout", [
+        "as"   => "user/logout",
+        "uses" => "UserController@logoutAction"
+    ]);
+});
+
+Route::get('/user/profile', 'UserController@profileAction');
