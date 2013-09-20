@@ -29,7 +29,7 @@ extends Controller
 				echo "Validation failed!";
 			}
 		}
-		return View::make('user/login');
+		return View::make('/user/login');
 	}
 
 	public function profileAction()
@@ -40,7 +40,7 @@ extends Controller
 	public function logoutAction()
 	{
 		Auth::logout();
-		return Redirect::route("/");
+		return Redirect::route('user/login');
 	}
 
 }

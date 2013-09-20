@@ -6,7 +6,7 @@
     ]) }}
         {{ Form::label("username", "Username") }}
         {{ Form::text("username", Input::old("username"), [
-            "placeholder" => "john.smith"
+            "placeholder" => "username"
         ]) }}
         {{ Form::label("password", "Password") }}
         {{ Form::password("password", [

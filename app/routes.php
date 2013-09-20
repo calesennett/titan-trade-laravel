@@ -28,5 +28,3 @@ Route::group(["before" => "auth"], function()
         "uses" => "UserController@logoutAction"
     ]);
 });
-
-Route::get('/user/profile', 'UserController@profileAction');
