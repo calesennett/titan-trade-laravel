@@ -43,7 +43,7 @@ extends Controller
 		return Redirect::route('user/login');
 	}
 
-	public function createAction()
+	public function registerAction()
 	{
 		if (Input::server("REQUEST_METHOD") == "POST")
 		{
@@ -71,7 +71,7 @@ extends Controller
 				echo "Validation failed!";
 			}
 		}
-		return View::make('user/create');
+		return View::make('user/register');
 	}
 
 }

@@ -1,7 +1,7 @@
 @extends("layout")
 @section("content")
     {{ Form::open([
-        "route"        => "user/create",
+        "route"        => "user/register",
         "autocomplete" => "off"
     ]) }}
         {{ Form::label("username", "Username") }}

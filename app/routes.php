@@ -17,9 +17,9 @@ Route::group(["before" => "guest"], function()
         "uses" => "UserController@loginAction"
     ]);
 
-    Route::any("/create", [
-        "as"     => "user/create",
-        "uses" => "UserController@createAction"
+    Route::any("/register", [
+        "as"     => "user/register",
+        "uses" => "UserController@registerAction"
     ]);
 });
 Route::group(["before" => "auth"], function()

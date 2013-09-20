@@ -15,7 +15,7 @@
 					Login
 				</a>
 				|
-				<a href="{{ URL::route("user/create") }}">
+				<a href="{{ URL::route("user/register") }}">
 					Register
 				</a>
 			@endif
