@@ -1,7 +1,7 @@
 @section("header")
 	<div class="header">
 		<div class="container">
-			<h1>Login</h1>
+			<h1>Titan Trade</h1>
 			@if (Auth::check())
 				<a href="{{ URL::route("user/logout") }}">
 					Logout of {{ Auth::user()->username }}

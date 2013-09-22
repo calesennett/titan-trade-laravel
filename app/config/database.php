@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'users',
+			'database'  => 'titantrade',
 			'username'  => 'root',
 			'password'  => 'Sparky911',
 			'charset'   => 'utf8',

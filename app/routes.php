@@ -10,6 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::resource('books', 'BookController');
+
 Route::group(["before" => "guest"], function()
 {
     Route::any("/login", [

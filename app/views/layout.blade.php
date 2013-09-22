@@ -7,7 +7,7 @@
             rel="stylesheet"
             href="/css/layout.css" />
         <title>
-            Tutorial
+            Titan Trade
         </title>
     </head>
     <body>
