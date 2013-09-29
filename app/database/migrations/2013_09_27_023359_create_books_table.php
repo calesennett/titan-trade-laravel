@@ -24,6 +24,9 @@ class CreateBooksTable extends Migration {
 			$table->string('isbn')
 			      ->nullable()
 				  ->default(null);
+			$table->string('thumbnail')
+			      ->nullable()
+			      ->default(null);
 			$table->timestamps();
 		});
 	}

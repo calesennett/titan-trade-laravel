@@ -2,9 +2,14 @@
 
 class BookController extends \BaseController {
 
+	public function __construct(Book $book) {
+		$this->book = $book;
+	}
+
 	public function index()
 	{
 		$books = Book::all();
+		return $books;
 	}
 
 	/**
@@ -53,7 +58,7 @@ class BookController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		
 	}
 
 	/**
