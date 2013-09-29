@@ -17,7 +17,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = ["password"];
+
+	protected $hidden = array('password');
+
+	public function signUp(Array $input) 
+	{
+		$user = User::create(array("username" => $input["username"],
+								   "email"    => $input["email"],
+								   "password" => Hash::make($input["password"])));
+		return $user;
+	}
+
+	public function isSaved()
+	{
+		return $this->save();
+	}
+
 
 	/**
 	 * Get the unique identifier for the user.

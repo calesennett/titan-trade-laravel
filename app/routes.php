@@ -11,21 +11,32 @@
 |
 */
 Route::resource('books', 'BookController');
-
 Route::group(["before" => "guest"], function()
 {
-    Route::any("/login", [
+    Route::get("/login", function() {
+        return View::make('user/login');
+    });
+
+    Route::post("/login", [
         "as"   => "user/login",
         "uses" => "UserController@loginAction"
     ]);
 
-    Route::any("/register", [
+    Route::get("/register", function() {
+        return View::make('user.register');
+    });
+
+    Route::post("/register", [
         "as"     => "user/register",
-        "uses" => "UserController@registerAction"
+        "uses"   => "RegisterController@store"
     ]);
 });
 Route::group(["before" => "auth"], function()
 {
+    Route::post("/", [
+        "as"   => "books/store",
+        "uses" => "BookController@store"
+    ]);
     Route::any("/profile", [
         "as"   => "user/profile",
         "uses" => "UserController@profileAction"

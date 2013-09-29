@@ -1,21 +1,21 @@
 @extends("layout")
 @section("content")
+    <h2 id="lblLogin" class="form-signin">Please log in</h2>
     {{ Form::open([
         "route"        => "user/login",
-        "autocomplete" => "off"
+        "class"        => "form-signin"
     ]) }}
-        {{ Form::label("username", "Username") }}
+
         {{ Form::text("username", Input::old("username"), [
-            "placeholder" => "username"
+            "placeholder" => "Email address",
+            "class"       => "form-control"
         ]) }}
-        {{ Form::label("password", "Password") }}
         {{ Form::password("password", [
-            "placeholder" => "●●●●●●●●●●"
+            "placeholder" => "●●●●●●●●●●",
+            "class"       => "form-control"
         ]) }}
-        {{ Form::submit("login") }}
+        {{ Form::submit("Login", [
+            "class"       => "btn btn-lg btn-primary btn-block"
+        ]) }}
     {{ Form::close() }}
-@stop
-@section("footer")
-    @parent
-    <script src="//polyfill.io"></script>
 @stop

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookTable extends Migration {
+class CreateBooksTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -15,25 +15,15 @@ class CreateBookTable extends Migration {
 		Schema::create('book', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table
-				->string("title")
-				->nullable()
-				->default(null);
-
-			$table
-				->string("isbn")
-				->nullable()
-				->default(null);
-
-			$table
-				->text("description", 1000)
-				->nullable()
-				->default(null);
-
-			$table
-				->string("category")
-				->nullable()
-				->default(null);
+			$table->string('title')
+				  ->nullable()
+				  ->default(null);
+			$table->string('description')
+				  ->nullable()
+				  ->default(null);
+			$table->string('isbn')
+			      ->nullable()
+				  ->default(null);
 			$table->timestamps();
 		});
 	}

@@ -1,0 +1,26 @@
+body {
+	background-color: #eee;
+}
+.form-signin {
+	margin: 0 auto;
+	max-width: 350px;
+}
+
+#lblLogin {
+	margin-top: 40px;
+	padding-bottom: 10px;
+}
+
+#username {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px; 
+}
+
+#password {
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.btn {
+	margin-top: 30px;
+}

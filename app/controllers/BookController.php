@@ -2,15 +2,9 @@
 
 class BookController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
 		$books = Book::all();
-		return $books;
 	}
 
 	/**
@@ -20,7 +14,7 @@ class BookController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 	/**
@@ -30,7 +24,8 @@ class BookController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$book = Book::create(array("isbn" => Input::get("isbn")));
+		var_dump("$book");
 	}
 
 	/**
@@ -41,8 +36,13 @@ class BookController extends \BaseController {
 	 */
 	public function show($isbn)
 	{
-		$book = Book::where('isbn', $isbn)->get();
-		return $book;
+		$book_url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" . $isbn;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $book_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$book_json = json_decode(curl_exec($ch), true);
+		$thumbnail = $book_json["items"]["0"]["volumeInfo"]["imageLinks"]["thumbnail"];
+		return View::make('thumbnail')->with('thumbnail', $thumbnail);
 	}
 
 	/**

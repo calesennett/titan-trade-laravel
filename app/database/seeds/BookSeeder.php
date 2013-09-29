@@ -1,6 +1,6 @@
 <?php
 
-class BookSeeder
+class BookSeeder 
 extends DatabaseSeeder
 {
 
@@ -8,16 +8,14 @@ extends DatabaseSeeder
 	{
 		$books = [
 			[
-				"title" => "Discrete Mathematics",
-				"isbn"  => "1449604420",
-				"description"         => "This is the description for the Discrete Mathematics book.",
-				"category" => "Math/Computer Science"
+				"title" 	  => "Discrete Mathematics",
+				"isbn"  	  => "1449604420",
+				"description" => "This is the description for the Discrete Mathematics book."
 			],
 			[
-				"title" => "American Government",
-				"isbn"  => "0205865801",
-				"description"         => "This is the description for the American Government book.",
-				"category" => "Political Science"
+				"title" 	  => "American Government",
+				"isbn"  	  => "0205865801",
+				"description" => "This is the description for the American Government book."
 			]
 
 		];
