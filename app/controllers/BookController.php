@@ -2,14 +2,15 @@
 
 class BookController extends \BaseController {
 
-	public function __construct(Book $book) {
+	public function __construct(Book $book, User $user) {
 		$this->book = $book;
+		$this->user = $user;
 	}
 
 	public function index()
 	{
-		$books = Book::all();
-		return $books;
+		$books = $this->book->all();
+		return View::make('books', compact('books'));
 	}
 
 	/**
@@ -19,7 +20,7 @@ class BookController extends \BaseController {
 	 */
 	public function create()
 	{
-		
+
 	}
 
 	/**
@@ -29,8 +30,12 @@ class BookController extends \BaseController {
 	 */
 	public function store()
 	{
-		$book = Book::create(array("isbn" => Input::get("isbn")));
-		var_dump("$book");
+		$book = $this->book->add(Input::all());
+		if ($book == null)
+		{
+			Session::flash('error', 'Invalid ISBN');
+			return Redirect::route('user/profile');
+		}
 	}
 
 	/**
@@ -39,15 +44,9 @@ class BookController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($isbn)
+	public function show()
 	{
-		$book_url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" . $isbn;
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $book_url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$book_json = json_decode(curl_exec($ch), true);
-		$thumbnail = $book_json["items"]["0"]["volumeInfo"]["imageLinks"]["thumbnail"];
-		return View::make('thumbnail')->with('thumbnail', $thumbnail);
+
 	}
 
 	/**

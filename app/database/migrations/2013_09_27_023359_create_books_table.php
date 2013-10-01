@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration {
 			$table->string('title')
 				  ->nullable()
 				  ->default(null);
-			$table->string('description')
+			$table->text('description', 10000)
 				  ->nullable()
 				  ->default(null);
 			$table->string('isbn')
@@ -27,6 +27,9 @@ class CreateBooksTable extends Migration {
 			$table->string('thumbnail')
 			      ->nullable()
 			      ->default(null);
+			$table->string('user_id')
+				  ->nullable()
+				  ->default(null);
 			$table->timestamps();
 		});
 	}

@@ -18,6 +18,9 @@ class CreateCategoriesTable extends Migration {
 			$table->string('category_name')
 				  ->nullable()
 				  ->default(null);
+			$table->string('book_id')
+				  ->nullable()
+				  ->default(null);
 			$table->timestamps();
 		});
 	}

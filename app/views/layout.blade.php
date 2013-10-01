@@ -13,6 +13,7 @@
     <body>
         <div class="content">
             <div class="container">
+                @yield('books')
                 @yield("content")
             </div>
         </div>

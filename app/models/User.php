@@ -28,11 +28,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $user;
 	}
 
-	public function isSaved()
-	{
-		return $this->save();
-	}
-
 
 	/**
 	 * Get the unique identifier for the user.

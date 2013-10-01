@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::resource('books', 'BookController');
+
 Route::group(["before" => "guest"], function()
 {
     Route::get("/login", function() {
@@ -33,9 +33,12 @@ Route::group(["before" => "guest"], function()
 });
 Route::group(["before" => "auth"], function()
 {
-    Route::post("/", [
-        "as"   => "books/store",
-        "uses" => "BookController@store"
+    Route::get("books", [
+        "uses"    => "BookController@index"
+    ]);
+    Route::post("/books", [
+        "as"      => "books",
+        "uses"    => "BookController@store"
     ]);
     Route::any("/profile", [
         "as"   => "user/profile",
