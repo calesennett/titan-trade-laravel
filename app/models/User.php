@@ -20,12 +20,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $hidden = array('password');
 
-	public function signUp(Array $input) 
+	public function signUp(Array $input)
 	{
-		$user = User::create(array("username" => $input["username"],
-								   "email"    => $input["email"],
-								   "password" => Hash::make($input["password"])));
-		return $user;
+		$domain = substr($input["email"], -7);
+		if ($domain == "iwu.edu") {
+			$user = User::create(array("username" => $input["username"],
+								       "email"    => $input["email"],
+								       "password" => Hash::make($input["password"])));
+			return $user;			
+		}
 	}
 
 

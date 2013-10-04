@@ -25,6 +25,7 @@ class Book extends Eloquent {
 		{
 			$book = new Book;
 			$book->title = $book_json["items"]["0"]["volumeInfo"]["title"];
+			$book->slug = $this->generateSlug($book->title);
 			$book->description = $book_json["items"]["0"]["volumeInfo"]["description"];
 			$book->isbn = $isbn;
 			$book->thumbnail = $book_json["items"]["0"]["volumeInfo"]["imageLinks"]["thumbnail"];
@@ -32,6 +33,11 @@ class Book extends Eloquent {
 			$book->save();
 			return $book;
 		}
+	}
+
+	public function generateSlug($title) 
+	{
+		return Str::slug($title, '-');
 	}
 
 	public function user()

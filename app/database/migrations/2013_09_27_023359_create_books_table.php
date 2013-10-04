@@ -30,6 +30,9 @@ class CreateBooksTable extends Migration {
 			$table->string('user_id')
 				  ->nullable()
 				  ->default(null);
+			$table->string('slug')
+				  ->nullable()
+				  ->default(null);
 			$table->timestamps();
 		});
 	}

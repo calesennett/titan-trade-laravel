@@ -17,7 +17,6 @@ extends Controller
 	public function store()
 	{
 		$user = $this->user->signUp(Input::all());
-		Auth::login($user);
-		return View::make('user.profile');
+		return Redirect::route('user/profile');
 	}
 }

@@ -44,9 +44,12 @@ class BookController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show()
+	public function show($slug)
 	{
-
+		$books = $this->book->where('slug', $slug)->get();
+		foreach ($books as $book) {
+			var_dump($book->user_id);
+		}
 	}
 
 	/**
@@ -57,7 +60,7 @@ class BookController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
+
 	}
 
 	/**

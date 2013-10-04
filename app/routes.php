@@ -36,6 +36,9 @@ Route::group(["before" => "auth"], function()
     Route::get("books", [
         "uses"    => "BookController@index"
     ]);
+    Route::get("books/{slug}", [
+        "uses"    => "BookController@show"
+    ]);
     Route::post("/books", [
         "as"      => "books",
         "uses"    => "BookController@store"

@@ -4,6 +4,12 @@
         "route"        => "user/register",
         "autocomplete" => "off"
     ]) }}
+
+        @if(Session::has('domain_error'))
+            <div class="alert alert-danger">
+                <h3> {{ Session::get('domain_error') }} </h3>
+            </div>
+        @endif
         {{ Form::label("username", "Username") }}
         {{ Form::text("username", Input::old("username"), [
             "placeholder" => "username"
