@@ -9,8 +9,8 @@ class BookController extends \BaseController {
 
 	public function index()
 	{
-		$books = $this->book->all();
-		return View::make('books', compact('books'));
+		$books = $this->book->groupBy('title')->get();
+		return View::make('books.index', compact('books'));
 	}
 
 	/**
@@ -36,6 +36,7 @@ class BookController extends \BaseController {
 			Session::flash('error', 'Invalid ISBN');
 			return Redirect::route('user/profile');
 		}
+		return Redirect::to('books')->with('flash_success', 'Book added!');
 	}
 
 	/**
@@ -47,9 +48,7 @@ class BookController extends \BaseController {
 	public function show($slug)
 	{
 		$books = $this->book->where('slug', $slug)->get();
-		foreach ($books as $book) {
-			var_dump($book->user_id);
-		}
+		return View::make('books.book', compact('books'));
 	}
 
 	/**

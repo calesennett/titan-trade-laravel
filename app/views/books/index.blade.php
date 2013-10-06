@@ -1,5 +1,11 @@
 @extends('layout')
 @section('books')
+    @if(Session::has('flash_success'))
+        <div class="alert alert-success dismiss">
+            <h3>{{Session::get('flash_success')}}</h3>
+        </div>
+    @endif
+
 	<div class="row">
     @foreach($books as $book)
     	@if($book->thumbnail != NULL)

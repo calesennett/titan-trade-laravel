@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('books', 'BookController');
+
 Route::group(["before" => "guest"], function()
 {
     Route::get("/login", function() {
@@ -33,16 +35,16 @@ Route::group(["before" => "guest"], function()
 });
 Route::group(["before" => "auth"], function()
 {
-    Route::get("books", [
-        "uses"    => "BookController@index"
-    ]);
-    Route::get("books/{slug}", [
-        "uses"    => "BookController@show"
-    ]);
-    Route::post("/books", [
-        "as"      => "books",
-        "uses"    => "BookController@store"
-    ]);
+    Route::get("/books/{slug}/request/{id}", function($slug, $id)
+    {
+        $book = Book::where('slug', $slug)->where('user_id', $id)->first();
+        if (Auth::user() == $book->user) 
+        {
+            return Redirect::to('profile')->with('req_error', 'You cannot request your own book.');
+        }
+        Event::fire('book.request', [$book, Auth::user(), $book->user]);
+        return Redirect::to('profile')->with('req_success', 'Book successfully requested');
+    });
     Route::any("/profile", [
         "as"   => "user/profile",
         "uses" => "UserController@profileAction"
