@@ -50,9 +50,9 @@ return array(
 
 		'iron' => array(
 			'driver'  => 'iron',
-			'project' => 'your-project-id',
-			'token'   => 'your-token',
-			'queue'   => 'your-queue-name',
+			'project' => '5250d53a638779000d000011',
+			'token'   => 'z_6sP4CaqQgZfeQ3KrTEiNi-Rww',
+			'queue'   => '',
 		),
 
 	),

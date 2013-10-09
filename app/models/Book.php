@@ -40,6 +40,11 @@ class Book extends Eloquent {
 		return Str::slug($title, '-');
 	}
 
+	public function trade()
+	{
+		return $this->belongsTo('Trade');
+	}
+
 	public function user()
 	{
 		return $this->belongsTo('User');

@@ -14,7 +14,7 @@
         <div class="content">
             <div class="container">
                 @yield('books')
-                @yield("content")
+                @yield('content')
             </div>
         </div>
     </body>

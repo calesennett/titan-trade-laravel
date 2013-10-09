@@ -12,7 +12,13 @@
 */
 
 Route::resource('books', 'BookController');
-
+/*
+*
+*
+*   Avaiable to public
+*
+*
+*/
 Route::group(["before" => "guest"], function()
 {
     Route::get("/login", function() {
@@ -33,6 +39,15 @@ Route::group(["before" => "guest"], function()
         "uses"   => "RegisterController@store"
     ]);
 });
+
+/*
+*
+*
+*   Avaiable to logged in users
+*
+*
+*/
+
 Route::group(["before" => "auth"], function()
 {
     Route::get("/books/{slug}/request/{id}", function($slug, $id)
@@ -45,7 +60,13 @@ Route::group(["before" => "auth"], function()
         Event::fire('book.request', [$book, Auth::user(), $book->user]);
         return Redirect::to('profile')->with('req_success', 'Book successfully requested');
     });
-    Route::any("/profile", [
+
+    Route::get('users/{user}', [
+
+        "uses" => "UserController@show"
+
+    ]);
+    Route::get("/profile", [
         "as"   => "user/profile",
         "uses" => "UserController@profileAction"
     ]);

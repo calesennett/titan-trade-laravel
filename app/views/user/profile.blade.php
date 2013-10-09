@@ -5,23 +5,31 @@
 	{{ Form::open([
         "url"        => "books"
     ]) }}
-        @if(Session::has('error'))
-            <div class="alert alert-danger">
-                <p>{{ Session::get('error') }}</p>
-            </div>
-        @endif
 
-        @if(Session::has('req_error'))
-            <div class="alert alert-danger">
-                <p>{{ Session::get('req_error') }}</p>
-            </div>
-        @endif
+    @foreach($books as $book)
+        <div class="book">
+            <p>{{ $book->title }}</p>
+            <p>{{ $book->description }}</p>
+        </div>
+    @endforeach
 
-        @if(Session::has('req_success'))
-            <div class="alert alert-success">
-                <p>{{ Session::get('req_success') }}</p>
-            </div>
-        @endif
+    @if(Session::has('error'))
+        <div class="alert alert-danger">
+            <p>{{ Session::get('error') }}</p>
+        </div>
+    @endif
+
+    @if(Session::has('req_error'))
+        <div class="alert alert-danger">
+            <p>{{ Session::get('req_error') }}</p>
+        </div>
+    @endif
+
+    @if(Session::has('req_success'))
+        <div class="alert alert-success">
+            <p>{{ Session::get('req_success') }}</p>
+        </div>
+    @endif
         {{ Form::text("isbn", Input::old("isbn"), [
             "placeholder" => "ISBN10"
         ]) }}

@@ -3,6 +3,21 @@
 class UserController
 extends Controller
 {
+
+	public function __construct(Book $book, User $user)
+	{
+		$this->user = $user;
+		$this->book = $book;
+	}
+
+	public function show($username)
+	{
+		$user = $this->user->where('username', $username)->first();
+		$books = $this->book->where('user_id', $user->id)->groupBy('title')->orderBy('title')->get();
+		return View::make('user.public', compact('books'))->with('user', $user);
+
+	}
+
 	public function loginAction()
 	{
 
@@ -17,7 +32,7 @@ extends Controller
 		{
 			if (Auth::attempt($credential))
 			{
-				return Redirect::route("user/profile");
+				return Redirect::route('user/profile', compact('books'));
 			}
 		}
 		return View::make('user/login');
@@ -26,7 +41,8 @@ extends Controller
 
 	public function profileAction()
 	{
-		return View::make('user/profile');
+		$books = $this->book->where('user_id', Auth::user()->id)->groupBy('title')->get();
+		return View::make('user/profile', compact('books'));
 	}
 
 	public function logoutAction()
