@@ -12,6 +12,11 @@
 */
 
 Route::resource('books', 'BookController');
+Route::post('queue', function() {
+
+    Queue::marshal();
+
+});
 /*
 *
 *

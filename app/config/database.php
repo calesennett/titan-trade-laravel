@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'titantrade.mysql.eu1.frbit.com',
+			'host'      => 'localhost',
 			'database'  => 'titantrade',
-			'username'  => 'titantrade',
-			'password'  => 'FvoaAwQHeI0XvyI0',
+			'username'  => 'root',
+			'password'  => 'Sparky911',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
