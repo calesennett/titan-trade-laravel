@@ -6,9 +6,6 @@
 	"require": {
 		"laravel/framework": "4.0.*"
 	},
-	"require": {
-    "laravelbook/ardent": "dev-master"
-  	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -21,20 +18,6 @@
 		"psr-0": {
 			"TitanTrade": "app/"
 		}
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"pre-update-cmd": [
-			"php artisan clear-compiled"
-		],
-		"post-update-cmd": [
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
 	},
 	"config": {
 		"preferred-install": "dist"
