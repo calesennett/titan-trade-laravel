@@ -57,7 +57,7 @@ return array(
 			'host'      => 'titantrade.mysql.eu1.frbit.com',
 			'database'  => 'titantrade',
 			'username'  => 'titantrade',
-			'password'  => 'FvoaAwQHel0Xvyl0',
+			'password'  => 'FvoaAwQHeI0XvyI0',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
