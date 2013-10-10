@@ -17,9 +17,4 @@ class TradeEventHandler
     		$message->to($bookOwner['email'], $bookOwner['username'])->subject($loggedIn['username'] . " wants your book!");
 		});
 	}
-
-	public function subscribe($events)
-	{
-		$events->listen('book.request', 'TitanTrade\Handlers\TradeEventHandler@onRequest');
-	}
 }

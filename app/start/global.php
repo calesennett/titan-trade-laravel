@@ -49,8 +49,6 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
-Event::subscribe('TitanTrade\Handlers\TradeEventHandler');
-
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler
@@ -97,3 +95,4 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path().'/observers.php';
