@@ -66,6 +66,7 @@ Route::group(["before" => "auth"], function()
         $trade->pending = 1;
         $trade->save();
         $book->trade_id = $trade->id;
+        $book->save();
         Event::fire('book.request', [$book, Auth::user(), $book->user]);
         return Redirect::to('profile')->with('req_success', 'Book successfully requested');
     });
