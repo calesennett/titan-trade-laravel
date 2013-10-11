@@ -62,6 +62,9 @@ Route::group(["before" => "auth"], function()
         {
             return Redirect::to('profile')->with('req_error', 'You cannot request your own book.');
         }
+        $trade = new Trade;
+        $trade->pending = 1;
+        $book->trade_id = $trade->id;
         Event::fire('book.request', [$book, Auth::user(), $book->user]);
         return Redirect::to('profile')->with('req_success', 'Book successfully requested');
     });

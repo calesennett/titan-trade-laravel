@@ -27,7 +27,10 @@ class CreateBooksTable extends Migration {
 			$table->string('thumbnail')
 			      ->nullable()
 			      ->default(null);
-			$table->string('user_id')
+			$table->integer('user_id')
+				  ->nullable()
+				  ->default(null);
+			$table->integer('trade_id')
 				  ->nullable()
 				  ->default(null);
 			$table->string('slug')
