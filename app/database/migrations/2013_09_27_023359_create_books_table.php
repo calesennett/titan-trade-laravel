@@ -36,6 +36,7 @@ class CreateBooksTable extends Migration {
 			$table->string('slug')
 				  ->nullable()
 				  ->default(null);
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
