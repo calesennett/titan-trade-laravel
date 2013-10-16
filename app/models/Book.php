@@ -8,6 +8,7 @@ class Book extends Eloquent {
 	 */
 	protected $fillable = array('isbn');
 	protected $table = 'book';
+	protected $softDelete = true;
 
 	public function add(Array $input)
 	{
