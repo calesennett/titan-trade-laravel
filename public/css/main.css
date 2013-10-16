@@ -1,0 +1,130 @@
+/* Global Styles */
+
+html,
+body {
+  margin: 0 0 0 0;
+  height: 100%;
+  width: 100%;
+}
+
+.intro-btn {
+  width: 118px;
+}
+
+.vert-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vert-text h1 {
+  font-family: 'Lato';
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+
+
+/* Full Page Image Header Area */
+
+.header {
+  color: #FFF;
+  font-size: 24px;
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url(/img/tb.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Intro */
+
+.intro {
+  color: #FFF;
+  background-color: #5cb85c;
+  padding: 50px 0;
+}
+
+/* Services */
+
+.services {
+  background: #5bc0de;
+  padding: 50px 0;
+  color: #ffffff;
+}
+
+.service-item {
+  margin-bottom: 15px;
+}
+
+i.service-icon {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 56px;
+  width: 140px;
+  height: 140px;
+  line-height: 136px;
+  vertical-align: middle; 
+  text-align: center;
+}
+
+i.service-icon:hover {
+  font-size: 68px;
+}
+
+/* Callout */
+
+.callout {
+  color: #ffffff;
+  display: table;
+  height: 400px;
+  width: 100%;
+  background: url(../img/section-two.JPG) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Portfolio */
+
+.portfolio {
+  color: #FFF;
+  background-color: #7D7D7D;
+  padding: 50px 0;
+}
+
+.portfolio-item {
+  margin-bottom: 25px;
+}
+
+.img-portfolio {
+  margin: 0 auto;
+}
+
+
+/* Call to Action */
+
+.call-to-action {
+  color: #ffffff;
+  background: #0a5175;
+  padding: 50px 0;
+}
+
+.call-to-action .btn {
+  margin: 10px;
+}
+
+/* Footer */
+
+footer {
+  background-color: #979797;
+  padding: 100px 0;
+}

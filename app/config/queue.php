@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sync',
+	'default' => 'iron',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return array(
 			'driver'  => 'iron',
 			'project' => '5250d53a638779000d000011',
 			'token'   => 'z_6sP4CaqQgZfeQ3KrTEiNi-Rww',
-			'queue'   => '',
+			'queue'   => 'tt',
 		),
 
 	),

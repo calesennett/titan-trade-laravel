@@ -12,6 +12,11 @@
 */
 
 Route::resource('books', 'BookController');
+Route::post('queue', function() {
+
+    Queue::marshal();
+
+});
 /*
 *
 *
@@ -21,6 +26,9 @@ Route::resource('books', 'BookController');
 */
 Route::group(["before" => "guest"], function()
 {
+    Route::get('/', function() {
+        return View::make('home');
+    });
     Route::get("/login", function() {
         return View::make('user/login');
     });

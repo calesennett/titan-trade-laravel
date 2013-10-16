@@ -30,9 +30,13 @@
             <p>{{ Session::get('req_success') }}</p>
         </div>
     @endif
-        {{ Form::text("isbn", Input::old("isbn"), [
-            "placeholder" => "ISBN10"
+        <div class="input-group input">
+            {{ Form::text("isbn", Input::old("isbn"), [
+            "placeholder" => "ISBN 10",
+            "class"       => "form-control isbn"
         ]) }}
-        {{ Form::submit("Add Book") }}
+        {{ Form::submit("Add Book", ["class" => "btn btn-primary"]) }}
+
+        </div>
     {{ Form::close() }}
 @stop

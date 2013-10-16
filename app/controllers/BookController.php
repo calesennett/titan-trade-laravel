@@ -20,7 +20,7 @@ class BookController extends \BaseController {
 	 */
 	public function create()
 	{
-
+		return View::make('books.create');
 	}
 
 	/**
