@@ -13,7 +13,9 @@ extends Controller
 	{
 
 		$query = Request::get('q');
-		$books = $this->book->where('title', 'LIKE', "%$query%")->orWhere('isbn', "$query")->groupBy('title')->get();
+		$books = $query 
+				? $this->book->search($query)->get()
+				: $this->book->groupBy('title')->get();
 		return View::make('books.index', compact('books'));
 		
 	}

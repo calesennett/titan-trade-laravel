@@ -36,6 +36,12 @@ class Book extends Eloquent {
 		}
 	}
 
+	public function scopeSearch($query, $search)
+	{
+		return $query->where('title', 'LIKE', "%$search%")
+					->orWhere('isbn', "$search")
+					->groupBy('title');
+	}
 
 	public function generateSlug($title) 
 	{
