@@ -36,6 +36,7 @@ class Book extends Eloquent {
 		}
 	}
 
+
 	public function generateSlug($title) 
 	{
 		return Str::slug($title, '-');

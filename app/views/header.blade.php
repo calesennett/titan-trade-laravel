@@ -12,10 +12,14 @@
           </button>
           <a class="navbar-brand" href="{{ URL::to('/') }}">Titan Trade</a>
         </div>
-
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <div class="input-group navbar-right search">
-            <span id="searchbar"><input type="text" class="form-control input_field" id="search" placeholder="Search"></span>
+          {{ Form::open(['method' => 'GET', 'url' => 'search'])}}
+            <span id="searchbar">
+                {{ Form::input('search', 'q', null, ['placeholder' => 'Search', 'class' => 'form-control input_field']) }}
+                {{ Form::close() }}
+            </span>
+            <!--input type="text" class="form-control input_field" id="search" placeholder="Search">-->
             <span class="input-group-btn">
               <button class="btn btn-info" id="search-btn"><i class="icon-search"></i></button>
             </span>

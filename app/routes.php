@@ -80,6 +80,7 @@ Route::group(["before" => "auth"], function()
         "uses" => "UserController@show"
 
     ]);
+    Route::resource('search', 'SearchController');
     Route::get("/profile", [
         "as"   => "user/profile",
         "uses" => "UserController@profileAction"
