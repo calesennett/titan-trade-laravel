@@ -35,7 +35,7 @@ extends Controller
 				return Redirect::route('user/profile', compact('books'));
 			}
 		}
-		return View::make('user/login');
+		return Redirect::route('user/login')->with('flash_message', 'Invalid username or password.');
 
 	}
 

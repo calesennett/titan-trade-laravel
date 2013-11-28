@@ -16,13 +16,11 @@
           <div class="input-group navbar-right search">
           {{ Form::open(['method' => 'GET', 'url' => 'search'])}}
             <span id="searchbar">
-                {{ Form::input('search', 'q', null, ['placeholder' => 'Search', 'class' => 'form-control input_field']) }}
+                {{ Form::input('search', 'q', null, ['placeholder' => 'Search', 'id' => 'search-txt', 'class' => 'form-control input_field']) }}
                 {{ Form::close() }}
             </span>
             <!--input type="text" class="form-control input_field" id="search" placeholder="Search">-->
-            <span class="input-group-btn">
-              <button class="btn btn-info" id="search-btn"><i class="icon-search"></i></button>
-            </span>
+            <button class="btn btn-info" id="search-btn"><i class="icon-search"></i></button>
           </div>
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::user())

@@ -20,6 +20,8 @@ $(document).ready(function($) {
 
 	$('#search-btn').click(function() {
 		$(this).hide();
-		$('#searchbar').show("drop", {direction: "right"}, "linear");
+		$('#searchbar').fadeIn(300, function() {
+			$('#search-txt').focus();
+		});
 	});
 });

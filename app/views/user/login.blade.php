@@ -6,10 +6,14 @@
     ]) }}
     <div class="row">
             <div class="col-md-4"></div>
-
             <div class="col-md-4">
                 <div class="form">
                     <h2 class="form_header">Login</h2>
+                    @if(Session::has('flash_message'))
+                                <div>
+                                    <h5>{{ Session::get('flash_message') }}</h5>
+                                </div>
+                            @endif
                     <div class="input-group input">
                         <span class="input-group-addon addon"><i class="icon-user"></i></span>
                         {{ Form::text("username", Input::old("username"), [

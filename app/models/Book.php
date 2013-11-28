@@ -40,6 +40,7 @@ class Book extends Eloquent {
 	{
 		return $query->where('title', 'LIKE', "%$search%")
 					->orWhere('isbn', "$search")
+					->orWhere('description', 'LIKE', "%$search%")
 					->groupBy('title');
 	}
 
